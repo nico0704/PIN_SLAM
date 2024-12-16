@@ -44,3 +44,5 @@ eval:
   silence_log: True
   mesh_freq_frame: 50 # reconstruct the mesh every x frames
   mesh_min_nn: 15
+  save_map: True
+  save_mesh: True
