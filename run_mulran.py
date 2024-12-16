@@ -7,7 +7,7 @@ print('Device used:', torch.cuda.get_device_name(0))
 
 metrics_dicts = []
 # seq_list = ['kaist01', 'kaist02', 'kaist03', 'dcc01', 'dcc02', 'dcc03', 'riverside01', 'riverside02', 'riverside03']
-seq_list = ['riverside03']
+seq_list = ['kaist01']
 for seq_str in seq_list:
     print('Now evaluate sequence '+ seq_str)
     seq_results = pin_slam.run_pin_slam('./config/lidar_slam/run_mulran.yaml', 'mulran', seq_str)

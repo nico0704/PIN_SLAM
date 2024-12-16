@@ -46,4 +46,4 @@ eval:
   mesh_freq_frame: 50 
   mesh_min_nn: 18
   save_map: True
-  save_mesh: True
+  save_mesh: False

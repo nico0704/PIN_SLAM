@@ -1,3 +1,4 @@
+# @author Nico Schroeder
 # this script is extracting point cloud frames from the rosbag
 # but it's for ros2 bag files (should be ending with .db3)
 # https://docs.openvins.com/dev-ros1-to-ros2.html
@@ -27,7 +28,6 @@ def rosbag2ply(args):
 
     print("Start extraction")
 
-    # Open ROS 2 bag file
     storage_options = rosbag2_py.StorageOptions(uri=args.input_bag, storage_id='sqlite3')
     converter_options = rosbag2_py.ConverterOptions(
         input_serialization_format='cdr', output_serialization_format='cdr')
@@ -56,7 +56,6 @@ def rosbag2ply(args):
 
             timestamps_shifted = timestamps - shift_timestamp
 
-            # Save PLY file
             field_names = ['x', 'y', 'z', 'intensity', 'timestamp']
             ply_file_path = os.path.join(args.output_folder, str(t) + ".ply")
             if ply.write_ply(ply_file_path, [array[:, :4], timestamps_shifted], field_names):
