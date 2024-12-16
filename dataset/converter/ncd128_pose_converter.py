@@ -34,8 +34,8 @@ def write_kitti_format_poses(filename: str, poses):
     np.savetxt(fname=f"{filename}.txt", X=_to_kitti_format(poses))
 
 
-in_file = "./data/ncd_128/math_e/gt-state-easy.csv"
-out_file = "./data/ncd_128/math_e/poses"
+in_file = "./data/ncd_128/collection_1_newer_college/ground_truth/gt-nc-quad-easy.csv"
+out_file = "./data/ncd_128/quad_e/poses"
 
 poses = read_tum_format_poses_csv(in_file)
 write_kitti_format_poses(out_file, poses)
