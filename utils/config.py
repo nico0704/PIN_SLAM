@@ -93,7 +93,7 @@ class Config:
         self.use_mid_ts: bool = False # use the middle of the created and last updated timestamp for adjusting or just use the created timestamp
         self.search_alpha: float = 0.2 # the larger this value is, the larger neighborhood region would be, the more robust to the highly dynamic motion and also the more time-consuming
         self.idw_index: int = 2 # the index for IDW (inverse distance weighting), 2 means square inverse
-        self.buffer_size: int = int(5e7) # buffer size for hashing, the smaller, the more likely to collision
+        self.buffer_size: int = int(1e8) # buffer size for hashing, the smaller, the more likely to collision
 
         # shared by both kinds of feature 
         self.feature_dim: int = 8  # length of the feature for each grid feature

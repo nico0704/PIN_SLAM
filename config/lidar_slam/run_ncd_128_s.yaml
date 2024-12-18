@@ -26,7 +26,7 @@ loss:
   dist_weight_scale: 0.5
 continual:
   batch_size_new_sample: 1000
-  pool_capacity: 1e7
+  pool_capacity: 5e6
 tracker:
   source_vox_down_m: 0.2
   iter_n: 100
@@ -36,7 +36,7 @@ pgo:
   min_loop_travel_ratio: 3.0
 optimizer: # mapper
   iters: 15  # iterations per frame
-  batch_size: 16384
+  batch_size: 8192
   adaptive_iters: True
   ba_freq_frame: 20  
   lr_pose_ba: 1e-3

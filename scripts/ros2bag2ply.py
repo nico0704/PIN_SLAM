@@ -37,6 +37,8 @@ def rosbag2ply(args):
     begin_flag = False
     shift_timestamp = None
 
+    total_num_plys = 0
+
     while reader.has_next():
         topic, serialized_msg, t = reader.read_next()
 
@@ -59,7 +61,8 @@ def rosbag2ply(args):
             field_names = ['x', 'y', 'z', 'intensity', 'timestamp']
             ply_file_path = os.path.join(args.output_folder, str(t) + ".ply")
             if ply.write_ply(ply_file_path, [array[:, :4], timestamps_shifted], field_names):
-                print("Export: " + ply_file_path)
+                total_num_plys += 1
+                print(f"Export ply {total_num_plys}: {ply_file_path}")
             else:
                 print("ply.write_ply() failed")
 
