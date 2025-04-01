@@ -26,7 +26,7 @@ loss:
   dist_weight_scale: 0.8
 continual:
   batch_size_new_sample: 1000
-  pool_capacity: 2e7
+  pool_capacity: 5e6
 tracker:
   source_vox_down_m: 0.6
   iter_n: 100
@@ -37,10 +37,12 @@ pgo:
   min_loop_travel_ratio: 3.0
 optimizer: # mapper
   iters: 15
-  batch_size: 16384
+  batch_size: 8192
   adaptive_iters: True
 eval:
-  o3d_vis_on: False # visualize the mapping or not
+  o3d_vis_on: True # visualize the mapping or not
   silence_log: True
   mesh_freq_frame: 50 # reconstruct the mesh every x frames
   mesh_min_nn: 15
+  save_map: True
+  save_mesh: True
