@@ -1,0 +1,16 @@
+#### 1. initial path (initial estimate) ####
+traj = linspace(start, goal, N)
+
+#### 2. optimization loop ####
+for i in range(100):
+    sdf_vals = query_sdf(traj)
+    sdf_grads = query_sdf_grad(traj)
+
+    #### Kostenfunktionen ####
+    loss_smooth = ... # curvature, acceleration
+    loss_obs = ... # based on sdf_vals and sdf_grads
+    total_loss = loss_smooth + lambda * loss_obs
+    total_loss.backward()
+
+    #### Optimierung ####
+    traj = traj - eta * traj.grad
